@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search all the GIFs" required [(ngModel)]="searchText">
+            <span class="input-group-btn">
+                <button class="btn btn-search" type="submit" required (click)="searchClick(searchText)"><i
+                        class="fa fa-search "></i> Search
+                </button>
+                <button class="btn btn-search" type="button" routerLink="/dashboard"><i class="fa fa-search "></i> Home
+                </button>
+            </span>
+        </div>
+    </div>
+    <br />
+    <div>
+        <div class="row align-items-center ">
+            <div class="col-md-4 pd-30-px" *ngFor="let result of giphyImages |paginate: config">
+                <img src="{{result.images.original.url}}" class="rounded float-left " alt="Image" width="304" height="236">
+            </div>
+    
+            <div *ngIf="giphyImages.length === 0">
+                <p>{{altTextForImage}}</p>
+            </div>
+    
+        </div>
+    </div>
+
+    <div class="footer" *ngIf="giphyImages.length != 0">
+        <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    </div>
+    
+</div>

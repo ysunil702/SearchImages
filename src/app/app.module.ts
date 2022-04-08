@@ -3,14 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SearchDashboardComponent } from './SearchGiphy/search-dashboard/search-dashboard.component';
+import { DashboardComponent } from './Dashboard/dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchDashboardComponent,
+    DashboardComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,NgxPaginationModule,
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
